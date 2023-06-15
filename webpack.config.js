@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -16,6 +17,15 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+       {
+         test: /\.(png|svg|jpg|jpeg|gif)$/,
+         use: {
+           loader: "file-loader",
+           options: {
+             name: "../src/reasources/[name].[ext]",
+           }
+         }
+       }
     ],
   },
 };

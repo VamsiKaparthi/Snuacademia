@@ -1,5 +1,6 @@
 import './Style.css';
-
+import logo1 from "../src/reasources/10.png"
+import logo2 from "../src/reasources/9.png"
 //DarkMode LightMode Toggle
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
@@ -7,35 +8,41 @@ const options = document.getElementById('options');
 
 //Generate homePage dynamically
 
-toggle.addEventListener('click', function(){
-    this.classList.toggle('bi-moon');
-    document.body.classList.toggle('dark');
-    const logo = document.getElementById('logo')
-    const img =document.getElementById('image')
-    
-    //see which mode it is
-    let isDarkMode = body.classList.contains('dark');
+toggle.addEventListener('click', function () {
+  this.classList.toggle('bi-moon');
+  document.body.classList.toggle('dark');
+  const logo = document.getElementById('logo')
+  const img = document.getElementById('image')
 
-    if(isDarkMode){
-        logo.src = "../src/reasources/dark-logo.jpeg";
-        if(img){
-          img.src = "../src/reasources/dark.jpg";
-        }
+  //see which mode it is
+  let isDarkMode = body.classList.contains('dark');
+
+  if (isDarkMode) {
+    logo.src = logo2;
+    if (img) {
+      img.src = "../src/reasources/dark.jpg";
     }
-    else{
-        logo.src = "../src/reasources/light-logo.jpeg";
-        if(img){
-          img.src = "../src/reasources/light-bat.jpg";
-        }
+  }
+  else {
+    logo.src = logo1;
+    if (img) {
+      img.src = "../src/reasources/light-bat.jpg";
     }
+  }
 });
 
 let generate = document.querySelector('.generate');
-
-let homegen = ()=>{
+const hoe = document.getElementById('home');
+const stud = document.getElementById('study');
+const road = document.getElementById('road');
+const erp = document.getElementById('erp');
+let homegen = () => {
   const isDarkMode = body.classList.contains('dark');
-
-    generate.innerHTML = 
+  hoe.style.borderBottom = '2px solid var(--font-color)';
+  stud.style.borderBottom = 'none';
+  road.style.borderBottom = 'none';
+  erp.style.borderBottom = 'none';
+  generate.innerHTML =
     `<div class="home">
     <div class="content">
         <div class="text">
@@ -50,17 +57,17 @@ let homegen = ()=>{
     </div>
     <img id="image" src="../src/reasources/light-bat.jpg" style="width:50%;margin-right: 10%;">
 </div>`
-const img = document.getElementById('image')
-if(isDarkMode){
-  if(img){
-    img.src = "../src/reasources/dark.jpg";
+  const img = document.getElementById('image')
+  if (isDarkMode) {
+    if (img) {
+      img.src = "../src/reasources/dark.jpg";
+    }
   }
-}
-else{
-  if(img){
-    img.src = "../src/reasources/light-bat.jpg";
+  else {
+    if (img) {
+      img.src = "../src/reasources/light-bat.jpg";
+    }
   }
-}
 }
 
 //default is Home
@@ -68,8 +75,12 @@ homegen();
 document.getElementById('home').addEventListener('click', homegen)
 
 //generate Study Material Tab
-let studyGen = ()=>{
-    generate.innerHTML = `<div class="study">
+let studyGen = () => {
+  hoe.style.borderBottom = 'none';
+  stud.style.borderBottom = '2px solid var(--font-color)';
+  road.style.borderBottom = 'none';
+  erp.style.borderBottom = 'none';
+  generate.innerHTML = `<div class="study">
     <div class="tagline">
         <span>Where Textbooks</span>
         <span>And Dreams Collide</span>
@@ -84,28 +95,28 @@ let studyGen = ()=>{
     </div>
 </div>`
 
-const generateCourses = (array, linkArray) => {
+  const generateCourses = (array, linkArray) => {
     let courses = document.querySelector('.courses');
     let searchBar = document.getElementById('course-select');
-  
+
     searchBar.addEventListener('input', () => {
       //input being typed inside the search bar
       const searchText = searchBar.value.toLowerCase();
-  
+
       // Clear existing courses
       courses.innerHTML = '';
-  
+
       for (let index = 0; index < array.length; index++) {
         const courseName = array[index].toLowerCase();
         const link = linkArray[index];
-  
+
         if (courseName.includes(searchText)) {
           let courseDiv = document.createElement('div');
           courseDiv.classList.add('courseBox');
           courses.appendChild(courseDiv);
           courseDiv.innerHTML = `<span id="course-${index}">${array[index]}</span>
           <span class="glink"  id="link-${index}"><a href="${link}" target="_blank">Content</a></span>`;
-  
+
           courseDiv.addEventListener('mouseover', () => {
             document.getElementById(`course-${index}`).style.display = 'none';
             document.getElementById(`link-${index}`).style.display = 'flex';
@@ -121,15 +132,19 @@ const generateCourses = (array, linkArray) => {
     searchBar.dispatchEvent(new Event('input'));
   };
 
-//example arrays
-let courseArr = ['DES101','FAC202','MEC104','MKT202','OHM401','STM204']
-let linkArr = ['https://drive.google.com/drive/folders/1pfWH0J2ek7yxTMbmoCv-4YQPB5XKOLHr?usp=sharing','https://drive.google.com/drive/folders/1q7UsKWFg5odT6rX57T4LArhSY5eLa2RJ?usp=sharing','https://drive.google.com/drive/folders/1NlrHKCP52b53OQiYcdBgO7NvL9eQ81zv?usp=sharing','https://drive.google.com/drive/folders/1tzIs2ux6lR1u8eT9fTAD-5JXBkhAGqrb?usp=drive_link','https://drive.google.com/drive/folders/1_-mkdQHCqpPceiQeZw7j91r0hVcUhmhJ?usp=sharing','https://drive.google.com/drive/folders/1Z9BqJC1vCnMxFSRT8YMafB1sdlLAv8mu?usp=sharing'];
-generateCourses(courseArr,linkArr);
+  //example arrays
+  let courseArr = ['DES101', 'FAC202', 'MEC104', 'MKT202', 'OHM401', 'STM204']
+  let linkArr = ['https://drive.google.com/drive/folders/1pfWH0J2ek7yxTMbmoCv-4YQPB5XKOLHr?usp=sharing', 'https://drive.google.com/drive/folders/1q7UsKWFg5odT6rX57T4LArhSY5eLa2RJ?usp=sharing', 'https://drive.google.com/drive/folders/1NlrHKCP52b53OQiYcdBgO7NvL9eQ81zv?usp=sharing', 'https://drive.google.com/drive/folders/1tzIs2ux6lR1u8eT9fTAD-5JXBkhAGqrb?usp=drive_link', 'https://drive.google.com/drive/folders/1_-mkdQHCqpPceiQeZw7j91r0hVcUhmhJ?usp=sharing', 'https://drive.google.com/drive/folders/1Z9BqJC1vCnMxFSRT8YMafB1sdlLAv8mu?usp=sharing'];
+  generateCourses(courseArr, linkArr);
 }
-document.getElementById('study').addEventListener('click',studyGen)
+document.getElementById('study').addEventListener('click', studyGen)
 
 //Generate Roadmap
-const roadGen = ()=>{
+const roadGen = () => {
+  hoe.style.borderBottom = 'none';
+  stud.style.borderBottom = 'none';
+  road.style.borderBottom = '2px solid var(--font-color)';
+  erp.style.borderBottom = 'none';
   generate.innerHTML = `<div class="roadMaps">
   <div class="tagline">
       <span>Choose</span>
@@ -143,56 +158,60 @@ const roadGen = ()=>{
   <div class="roads">
       
   </div>`;
-  let roadArr = ['CSC','ECE','EEE','MECH','BMS','ECO']
+  let roadArr = ['CSC', 'ECE', 'EEE', 'MECH', 'BMS', 'ECO']
   generateRoad(roadArr);
 }
 
 const generateRoad = (array) => {
   let roads = document.querySelector('.roads');
   let searchBar = document.getElementById('course-select');
-  
-    searchBar.addEventListener('input', () => {
-      //input being typed inside the search bar
-      const searchText = searchBar.value.toLowerCase();
-  
-      // Clear existing courses
-      roads.innerHTML = '';
-  
-      for (let index = 0; index < array.length; index++) {
-        const branchName = array[index].toLowerCase();
-        //const link = linkArray[index];
-        if (branchName.includes(searchText)) {
-          let mapDiv = document.createElement('div');
-          mapDiv.classList.add('roadBox');
-          roads.appendChild(mapDiv);
-          mapDiv.innerHTML = `<span id="course-${index}">${array[index]}</span>
+
+  searchBar.addEventListener('input', () => {
+    //input being typed inside the search bar
+    const searchText = searchBar.value.toLowerCase();
+
+    // Clear existing courses
+    roads.innerHTML = '';
+
+    for (let index = 0; index < array.length; index++) {
+      const branchName = array[index].toLowerCase();
+      //const link = linkArray[index];
+      if (branchName.includes(searchText)) {
+        let mapDiv = document.createElement('div');
+        mapDiv.classList.add('roadBox');
+        roads.appendChild(mapDiv);
+        mapDiv.innerHTML = `<span id="course-${index}">${array[index]}</span>
           <div style="display:flex; justify-content: space-around; width:80%" >
           <span class="glink-r"  id="majorLink-${index}"><a class='ar' href="https://www.google.com/" target="_blank">Major</a></span>
           <span class="glink-r" id="minorLink-${index}"><a class='ar'href="https://www.google.com/" target="_blank">Minor</a></span>
           </div>`;
-  
-          mapDiv.addEventListener('mouseover', () => {
-            document.getElementById(`course-${index}`).style.display = 'none';
-            document.getElementById(`majorLink-${index}`).style.display = 'flex';
-            document.getElementById(`minorLink-${index}`).style.display = 'flex';
 
-          });
-          mapDiv.addEventListener('mouseout', () => {
-            document.getElementById(`course-${index}`).style.display = 'flex';
-            document.getElementById(`majorLink-${index}`).style.display = 'none';
-            document.getElementById(`minorLink-${index}`).style.display = 'none';
-          });
-        }
+        mapDiv.addEventListener('mouseover', () => {
+          document.getElementById(`course-${index}`).style.display = 'none';
+          document.getElementById(`majorLink-${index}`).style.display = 'flex';
+          document.getElementById(`minorLink-${index}`).style.display = 'flex';
+
+        });
+        mapDiv.addEventListener('mouseout', () => {
+          document.getElementById(`course-${index}`).style.display = 'flex';
+          document.getElementById(`majorLink-${index}`).style.display = 'none';
+          document.getElementById(`minorLink-${index}`).style.display = 'none';
+        });
       }
-    });
-    //To generate courses when you load up page
-    searchBar.dispatchEvent(new Event('input'));
+    }
+  });
+  //To generate courses when you load up page
+  searchBar.dispatchEvent(new Event('input'));
 }
 
-document.getElementById('road').addEventListener('click',roadGen);
+document.getElementById('road').addEventListener('click', roadGen);
 
 //Generate Erp Management Tab
-const erpGen = ()=>{
+const erpGen = () => {
+  hoe.style.borderBottom = 'none';
+  stud.style.borderBottom = 'none';
+  road.style.borderBottom = 'none';
+  erp.style.borderBottom = '2px solid var(--font-color)';
   generate.innerHTML = `<div class="erpManagement">
   <div class="tagline">
       <span>Simplify</span>
@@ -219,34 +238,34 @@ const erpGen = ()=>{
   let links = linkSection.getElementsByTagName("div");
   let faqs = document.querySelector('.faqs');
 
-  function faqFill(array){
+  function faqFill(array) {
     faqs.innerHTML = '';
-    for(let i = 0; i<array.length;i++){
+    for (let i = 0; i < array.length; i++) {
       console.log('hello');
       let element = array[i];
       let faqDiv = document.createElement('div');
-      faqDiv.innerHTML = 
-      `<div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      faqDiv.innerHTML =
+        `<div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
       <span>${element.question}</span>
       <span><i id='drop-${i}' class="bi bi-caret-down-fill"></i></span>
       </div>
       <div class="sol" id='sol-${i}'>${element.answer}</div>`
       faqs.appendChild(faqDiv);
-      document.getElementById(`drop-${i}`).addEventListener('click',()=>{
+      document.getElementById(`drop-${i}`).addEventListener('click', () => {
         const sol = document.getElementById(`sol-${i}`);
         const arrow = document.getElementById(`drop-${i}`);
-        if(sol.style.display=='flex'){
-          sol.style.display='none';
+        if (sol.style.display == 'flex') {
+          sol.style.display = 'none';
           arrow.classList = 'bi-caret-down-fill';
         }
-        else{
-          sol.style.display='flex'
+        else {
+          sol.style.display = 'flex'
           arrow.classList = 'bi-caret-up-fill';
         }
       })
     }
   }
-  faqs.innerHTML='';
+  faqs.innerHTML = '';
   //Example arrays
   let erpFaqs = [
     {
@@ -336,18 +355,18 @@ const erpGen = ()=>{
       answer: "Yes, Blackboard offers communication tools such as email, discussion boards, and messaging features that allow students to interact with their professors. You can use these tools to ask questions, seek clarification, or engage in course-related discussions."
     }
   ];
-  document.getElementById('erpLink').addEventListener('click',function(){
+  document.getElementById('erpLink').addEventListener('click', function () {
     faqFill(erpFaqs);
   });
-  document.getElementById('fastLink').addEventListener('click',function(){
+  document.getElementById('fastLink').addEventListener('click', function () {
     faqFill(fastrackFaqs);
   });
-  document.getElementById('hosteLink').addEventListener('click',function(){
+  document.getElementById('hosteLink').addEventListener('click', function () {
     faqFill(hostelFaqs);
   });
-  document.getElementById('bbLink').addEventListener('click',function(){
+  document.getElementById('bbLink').addEventListener('click', function () {
     faqFill(blackboardFaqs);
   });
 }
 
-document.getElementById('erp').addEventListener('click',erpGen);
+document.getElementById('erp').addEventListener('click', erpGen);

@@ -1,10 +1,10 @@
 /*Using Css variable*/
-:root{
+:root {
     --bg-color: white;
     --font-color: black;
 }
 
-.dark{
+.dark {
     --bg-color: black;
     --font-color: white;
 }
@@ -14,6 +14,8 @@ body {
     background-color: var(--bg-color);
     color: var(--font-color);
     font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -74,21 +76,25 @@ i {
     display: flex;
     align-items: center;
 }
+
 /* study-material page */
-.study,.roadMaps{
+.study,
+.roadMaps {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.tagline{
+
+.tagline {
     margin-top: 5vh;
-    font-size: max(50px,4vw);
+    font-size: max(50px, 4vw);
     font-weight: 950;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.search-bar{
+
+.search-bar {
     margin-top: 5vh;
     display: flex;
     justify-content: flex-start;
@@ -101,12 +107,13 @@ i {
     gap: 10px;
     border-radius: 5px;
 }
-#course-select{
+
+#course-select {
     background-color: var(--bg-color);
     color: var(--font-color);
     border: none;
     outline: none;
-    color: (--font-color) ;
+    color: (--font-color);
     font-size: 25px;
     border-left: 1px solid grey;
     padding-left: 10px;
@@ -114,7 +121,8 @@ i {
     width: 80%;
 }
 
-.courses,.roads{
+.courses,
+.roads {
     width: 90%;
     height: 20px;
     margin-top: 50px;
@@ -125,7 +133,7 @@ i {
     gap: 30px;
 }
 
-.courseBox{
+.courseBox {
     height: 200px;
     width: 300px;
     border: 2px solid var(--font-color);
@@ -135,71 +143,81 @@ i {
     color: var(--font-color);
 }
 
-.glink{
+.glink {
     display: none;
     border-bottom: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: var(--font-color);
     border-bottom: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
     color: var(--font-color);
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
     color: var(--font-color);
 }
-a:active{
+
+a:active {
     text-decoration: none;
     color: var(--font-color);
 }
-.generate{
+
+.generate {
     transition: '2s';
 }
 
-.linkSection{
+.linkSection {
     margin-top: 5vh;
     display: flex;
     width: 80%;
     justify-content: space-around;
     gap: 10px;
 }
-.erpManagement{
+
+.erpManagement {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.linkSection>div{
+
+.linkSection>div {
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     border: 1px solid var(--font-color);
-    font-size: max(1.2vw,15px);
-    height: max(35px,5vh);
-    width: max(350px,15vw);
+    font-size: max(1.2vw, 15px);
+    height: max(35px, 5vh);
+    width: max(350px, 15vw);
     border-radius: 5px;
     color: var(--font-color);
     background-color: var(--bg-color);
     flex-wrap: wrap;
     cursor: pointer;
 }
-.linkSection>div:hover{
+
+.linkSection>div:hover {
     color: var(--bg-color);
     background-color: var(--font-color);
     transition: 100ms;
 }
-.faqs{
+
+.faqs {
     display: flex;
     flex-direction: column;
     margin-top: 7vh;
     width: 80%;
-    gap:20px;
+    gap: 20px;
 }
-.faqs>div{
+
+.faqs>div {
     width: 100%;
     border: 1px solid var(--font-color);
     display: flex;
@@ -208,10 +226,12 @@ a:active{
     padding: 15px;
     border-radius: 2px;
 }
-.sol{
+
+.sol {
     display: none;
 }
-.roadBox{
+
+.roadBox {
     height: 200px;
     width: 300px;
     border: 2px solid var(--font-color);
@@ -221,7 +241,8 @@ a:active{
     align-items: center;
     color: var(--font-color);
 }
-.glink-r{
+
+.glink-r {
     display: none;
     border: 1px solid var(--font-color);
     background-color: var(--font-color);
@@ -231,10 +252,12 @@ a:active{
     justify-content: center;
     border-radius: 5px;
 }
-.ar{
+
+.ar {
     text-decoration: none;
     color: var(--bg-color);
 }
-.ar:visited{
+
+.ar:visited {
     color: var(--bg-color);
 }

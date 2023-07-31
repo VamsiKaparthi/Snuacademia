@@ -51,7 +51,7 @@ let homegen = () => {
     <div class="content">
         <div class="text">
             <div class="slogan">
-                BY SNUITES <br> FOR SNUITES
+                ONE STOP SOLUTION<br>FOR ACADEMICS
             </div>
             <div class="slogan-para">
                 Welcome to SnuAcademia, the ultimate student designed website that helps in simplifying study life
@@ -59,7 +59,7 @@ let homegen = () => {
             </div>
         </div>
     </div>
-    <img id="image" src='${lpic}' style="width:50%;margin-right: 10%;">
+    <img id="image" src='${lpic}' style="width:50%;margin-right: 9%;">
 </div>`;
   const img = document.getElementById("image");
   if (isDarkMode) {

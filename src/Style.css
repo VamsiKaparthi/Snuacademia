@@ -60,13 +60,15 @@ body {
 }
 
 .slogan {
-  font-size: max(5vw, 50px);
+  font-size: max(3.6vw, 45px);
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  margin-bottom: 25px;
 }
 
 .slogan-para {
-  font-size: max(1vw, 20px);
+  color: rgb(75, 75, 75);
+  font-size: max(1vw, 18px);
   width: max(80%, 300px);
 }
 
@@ -313,7 +315,7 @@ a.ar {
 }
 
 .contact>a:hover {
-color : var(--secondary);
+  color: var(--secondary);
 }
 
 
@@ -339,3 +341,5 @@ color : var(--secondary);
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width:420px) {}
